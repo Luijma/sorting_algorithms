@@ -6,7 +6,7 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *result = NULL;
-	listint_t *current = list;
+	listint_t *current = *list;
 	listint_t *next;
 
 	while (current)
