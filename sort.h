@@ -26,4 +26,4 @@ void quick_sort(int *array, size_t size);
 void swap_elements(int *a, int *b);
 void insert(listint_t **head, listint_t *new);
 
-#endif /** SORT_H **/
+#endif /** _SORT_H **/
