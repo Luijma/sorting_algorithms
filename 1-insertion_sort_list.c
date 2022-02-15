@@ -11,11 +11,12 @@ void insertion_sort_list(listint_t **list)
 
 	while (current)
 	{
-		next = current->next;		
-		current->prev = current->next;
+		next = current->next;
+		print_list(result);
+		current->prev = NULL;
+		current->next = NULL;
 
 		insert(&result, current);
-
 		current = next;
 	}
 
@@ -30,7 +31,7 @@ void insert(listint_t **head, listint_t *new)
 {
 	listint_t *current;
 
-	if (!head)
+	if (*head == NULL)
 	{
 		*head = new;
 	} else if ((*head)->n >= new->n)
