@@ -6,9 +6,9 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	int i;
-	int smallest;
-	int j;
+	size_t i;
+	size_t smallest;
+	size_t j;
 
 	for (i = 0; i < size - 1; i++)
 	{
