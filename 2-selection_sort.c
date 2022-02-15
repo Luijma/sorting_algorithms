@@ -13,7 +13,7 @@ void selection_sort(int *array, size_t size)
 	for (i = 0; i < size - 1; i++)
 	{
 		smallest = i;
-		for (j = i+1; j < size; j++)
+		for (j = i + 1; j < size; j++)
 		{
 			if (array[j] < array[smallest])
 			{
@@ -31,9 +31,9 @@ void selection_sort(int *array, size_t size)
  */
 void swap_elements(int *a, int *b)
 {
-        int temp;
+	int temp;
 
-        temp = *a;
-        *a = *b;
-        *b = temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
