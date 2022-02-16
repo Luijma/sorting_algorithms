@@ -6,6 +6,8 @@
  */
 void quick_sort(int *array, size_t size)
 {
+	if (array == NULL || size < 2)
+		return;
 	recursive_sort(array, 0, ((int)size) - 1, size);
 }
 /**
@@ -55,18 +57,18 @@ int partition(int *array, int low, int high, size_t size)
 	int i = low - 1;
 	int j;
 
-	for (j = low; j < high; j++)
+	for (j = low; j <= high; j++)
 	{
 		if (array[j] <= pivot)
 		{
 			i++;
-
-			swap_elements(&array[i], &array[j]);
+			if (i != j)
+			{
+				swap_elements(&array[i], &array[j]);
+				print_array(array, size);
+			}
 		}
 	}
 
-	swap_elements(&array[i + 1], &array[high]);
-	print_array(array, size);
-
-	return (i + 1);
+	return (i);
 }
