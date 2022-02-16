@@ -1,7 +1,7 @@
 #include "sort.h"
 /**
  * insertion_sort_list - performs insertion sort on linked list
- * @list - linked list to sort
+ * @list: linked list to sort
  */
 void insertion_sort_list(listint_t **list)
 {
@@ -36,8 +36,9 @@ void insertion_sort_list(listint_t **list)
 }
 /**
  * insert - helper function for insertion alg
- * @head: head of the sorted version of the list
- * @new: the new node that will be inserted
+ * @list: head of the sorted version of the list
+ * @left: node for insert sort
+ * @right: second node for insert sort
  */
 void insert(listint_t **list, listint_t **left, listint_t **right)
 {
