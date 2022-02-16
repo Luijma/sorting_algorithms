@@ -27,5 +27,6 @@ void swap_elements(int *a, int *b);
 void insert(listint_t **head, listint_t *new);
 void recursive_sort(int *array, int low, int high, size_t size);
 int partition(int *array, int low, int high, size_t size);
+void shell_sort(int *array, size_t size);
 
 #endif /** _SORT_H **/
