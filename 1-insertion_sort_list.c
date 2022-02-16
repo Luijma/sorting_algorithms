@@ -5,58 +5,47 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *result = NULL;
-	listint_t *current = *list;
-	listint_t *next;
+	listint_t *next, *left, *right;
 
-	while (current)
+	if (list == NULL || *list == NULL)
+		return;
+
+	next = (*list)->next;
+	while (next)
 	{
-		next = current->next;
-		print_list(result);
-		current->prev = NULL;
-		current->next = NULL;
+		left = next->prev;
+		right = next;
+		next = right->next;
+		while (left != NULL && left->n > right->n)
+		{
+			if (left->prev == NULL)
+				*list = right;
+			else
+				left->prev->next = right;
+			if (right->next)
+				right->next->prev = left;
 
-		insert(&result, current);
-		current = next;
+			right->prev = left->prev;
+			left->next = right->next;
+			left->prev = right;
+			right->next = left;
+			print_list(*list);
+			left = right->prev;
+		}
 	}
-
-	*list = result;
 }
 /**
  * insert - helper function for insertion alg
  * @head: head of the sorted version of the list
  * @new: the new node that will be inserted
  */
-void insert(listint_t **head, listint_t *new)
+void insert(listint_t **list, listint_t **left, listint_t **right)
 {
-	listint_t *current;
+	(*right)->prev = (*left)->prev;
+	(*left)->next = (*right)->next;
+	(*left)->prev = (*right);
+	(*right)->next = (*left);
+	print_list(*list);
+	(*left) = (*right)->prev;
 
-	if (*head == NULL)
-	{
-		*head = new;
-	} else if ((*head)->n >= new->n)
-	{
-		new->next = *head;
-		new->next->prev = new;
-		*head = new;
-	} else
-	{
-		current = *head;
-
-		while (current->next != NULL &&
-			current->next->n < new->n)
-		{
-			current = current->next;
-		}
-
-		new->next = current->next;
-
-		if (current->next != NULL)
-		{
-			new->next->prev = new;
-		}
-
-		current->next = new;
-		new->prev = current;
-	}
 }
